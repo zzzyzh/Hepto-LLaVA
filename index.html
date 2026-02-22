@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!--Hepato-LLaVA-->
+  <meta name="description"
+        content="Hepato-LLaVA: An Expert MLLM with Sparse Topo-Pack Attention for Hepatocellular Pathology Analysis on Whole Slide Images">
+  <meta name="keywords" content="Hepato-LLaVA, Hepatocellular Carcinoma, Multi-modal Large Language Models, Whole Slide Images, Digital Pathology">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hepato-LLaVA</title>
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <!--css file-->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+  <!--html head icon-->
+  <link rel="icon" href="./static/images/icon.png">
+
+
+  <!--js file-->
+  <script type="text/javascript" src="./static/js/sort-table.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/leaderboard_button.js"></script>
+</head>
+
+
+<!--Start Body-->
+<body>
+
+<!--Nav Content-->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <!--nav menu-->
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <!--navbar link-->
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Future Release
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!--title author and link-->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <!--main title-->
+          <h1 class="title is-1 publication-title">
+            <img src="static/images/icon.png" style="width:2.5em; vertical-align: middle" alt="Logo"/> 
+            <span class="hepato-brand" style="vertical-align: middle">Hepato-LLaVA</span>            
+          </h1>
+          <!--subtitle-->
+          <h2 class="subtitle is-3 publication-subtitle">
+            Hepato-LLaVA: An Expert MLLM with Sparse Topo-Pack Attention for Hepatocellular Pathology Analysis on Whole Slide Images
+          </h2>
+
+          <!--author link-->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Yuxuan Yang*<sup style="color:#4B70F5;"><b>1</b></sup>,
+            </span>
+            <span class="author-block">
+              Zhonghao Yan*&dagger;<sup style="color:#4B70F5;"><b>1</b></sup>,
+            </span>
+            <span class="author-block">
+              Yi Zhang*<sup style="color:#06D001;"><b>2</b></sup>,
+            </span>
+            <span class="author-block">
+              Bo Yun<sup style="color:#4B70F5;"><b>1</b></sup>,
+            </span>
+            <span class="author-block">
+              Muxi Diao<sup style="color:#4B70F5;"><b>1</b></sup>,
+            </span>
+            <span class="author-block">
+              Guowei Zhao<sup style="color:#06D001;"><b>2</b></sup>,
+            </span>
+            <span class="author-block">
+              Kongming Liang&Dagger;<sup style="color:#4B70F5;"><b>1</b></sup>,
+            </span>
+            <span class="author-block">
+              Wenbin Li<sup style="color:#06D001;"><b>2</b></sup>,
+            </span>
+            <span class="author-block">
+              Zhanyu Ma<sup style="color:#4B70F5;"><b>1</b></sup>
+            </span>
+          </div>
+          
+          <!--author institution-->
+          <div class="is-size-6 publication-authors" style="margin-top: 0.5em;">
+            <span class="author-block"><sup style="color:#4B70F5;"><b>1</b></sup>Department of Artificial Intelligence, Beijing University of Posts and Telecommunications, Beijing 100876, China</span>&nbsp;&nbsp;
+            <span class="author-block"><sup style="color:#06D001;"><b>2</b></sup>Department of Pathology, National Cancer Center/National Clinical Research Center for Cancer/Cancer Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College, Beijing 100021, China</span>&nbsp;&nbsp;
+          </div>
+          
+          <!--equal contribution-->
+          <div class="is-size-6 publication-authors" style="margin-top: 0.4em;">
+            <span class="author-block">* Equal contribution</span>&nbsp;&nbsp;
+            <span class="author-block">&dagger; Project Lead</span>&nbsp;&nbsp;
+            <span class="author-block">&Dagger; Corresponding author</span>
+          </div>
+
+          <!--links-->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!--arxiv link (Coming Soon)-->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark" style="pointer-events: none; opacity: 0.6;">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (Coming Soon)</span>
+                </a>
+              </span>
+              <!-- Code Link (Coming Soon) -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark" style="pointer-events: none; opacity: 0.6;">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                </a>
+              </span>
+              <!-- Dataset Link (Coming Soon) -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark" style="pointer-events: none; opacity: 0.6;">
+                  <span class="icon">
+                      <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span>Dataset (Coming Soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!----------------------------------Main Body---------------------------------->
+
+<!-- Introduction -->
+<section class="hero is-light is-small mb-0">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 hepato">
+      <span class="hepato" style="vertical-align: middle">🌟 Introduction</span>
+    </h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+        <p>
+          Hepatocellular Carcinoma (HCC) relies on histopathological <b>Whole Slide Images (WSIs)</b> examination as the gold standard. However, manual analysis of these gigapixel, highly heterogeneous WSIs is labor-intensive and prone to inter-observer variability. This has catalyzed WSI-based <b>Multi-modal Large Language Models (MLLMs)</b> to enable VQA.
+        </p>
+        <p>
+          A key challenge in pathology MLLMs is gigapixel WSI representation. Existing methods either use <b>thumbnail-based approaches</b> that lose critical high-resolution diagnostic details, or employ <b>slide-encoder approaches</b> that generate excessively redundant tokens.
+        </p>
+        <p>
+          We propose <span class="hepato-brand">Hepato-LLaVA</span>, a specialized MLLM for fine-grained hepatocellular pathology analysis. It features a novel <b>Hierarchical Sparse Visual Attention (HSVA)</b> mechanism that models 2D tissue topology to aggregate diagnostic evidence while preserving context. To address multiscale data scarcity, we also present <span class="hepato-brand">HepatoPathoVQA</span>, comprising <b>33K hierarchically structured QA pairs</b> validated by pathologists. <span class="hepato-brand">Hepato-LLaVA</span> achieves state-of-the-art diagnostic accuracy, outperforming existing pathology MLLMs by an absolute <b>20%</b>.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--Dataset section-->
+<section class="hero is-light is-small mb-0">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 hepato">
+      <!-- TODO: 替换为 HepatoPathoVQA 的图标 -->
+      <img src="static/images/icon.png" style="width:2em;vertical-align: middle" alt="Logo"/>
+      <span class="hepato-brand" style="vertical-align: middle">HepatoPathoVQA Dataset</span>
+    </h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- Dataset Construction Pipeline -->
+        <h2 class="title is-3">Three-Stage Construction Pipeline</h2>
+        <div class="content has-text-justified">
+          <p>
+            We collected <b>200 WSIs</b> containing HCC and constructed <span class="hepato-brand">HepatoPathoVQA</span>, a multi-scale dataset featuring <b>33K QA pairs</b> for morphological analysis and diagnosis. By following pathologists' diagnostic workflows, we developed a generation pipeline using Gemini-3-flash that simulates the transition from macroscopic to microscopic clinical reasoning.
+          </p>
+          <p>
+            The construction pipeline consists of three stages: <b>(1) Hierarchical Sampling</b> using a Minimum Spanning Tree (MST) to identify ROIs, <b>(2) Hierarchical Clinical Inference</b> with Gemini-3-flash integrating macroscopic contexts into microscopic analysis, and <b>(3) QA Generation</b> for instruction tuning.
+          </p>
+          <p>
+            The dataset spans three scales—<b>WSI</b>, <b>ROI (2×)</b>, and <b>Patch (10×, 20×)</b>—validated by expert pathologists. <span class="hepato-brand">HepatoPathoVQA</span> is the first 33K multi-scale pathology dataset, bridging instruction data with real-world clinical practice.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="static/images/dataset.png" width="100%"/>
+          <p>
+            Overview of the <span class="hepato-brand">HepatoPathoVQA</span> construction pipeline: 
+            (1) Extracts ROIs and Patches from WSIs using MST-based clustering and triangular seed-point selection.
+            (2) Employs Gemini-3-flash for hierarchical inference by integrating macroscopic descriptions as context for subsequent microscopic analysis.
+            (3) Generates multi-scale QA pairs and captions for instruction tuning and alignment.
+          </p>
+        </div>
+
+        <h2 class="title is-3">Dataset Statistics</h2>
+        <div class="content has-text-justified">
+          <p>
+            <span class="hepato-brand">HepatoPathoVQA</span> covers morphological assessment to final diagnosis, supporting fine-grained, multi-scale HCC pathology analysis.
+          </p>
+        </div>
+        <div class="box">
+          <div class="table-container">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-text-centered">
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Total WSIs</td>
+                  <td><b>200</b></td>
+                </tr>
+                <tr>
+                  <td>Total QA Pairs</td>
+                  <td><b>33K</b></td>
+                </tr>
+                <tr>
+                  <td>Scales</td>
+                  <td>WSI, ROI (2×), Patch (10×, 20×)</td>
+                </tr>
+                <tr>
+                  <td>Task Types</td>
+                  <td>VQA (Single-choice, Multi-choice, Open-ended), Captioning</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--Framework section-->
+<section class="hero is-light is-small mb-0">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 hepato">
+      <!-- TODO: 替换为框架图标 -->
+      <img src="static/images/icon.png" style="width:2em;vertical-align: middle" alt="Logo"/>
+      <span class="hepato-brand" style="vertical-align: middle">Hepato-LLaVA Framework</span>
+    </h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            <span class="hepato-brand">Hepato-LLaVA</span> employs a modular architecture with three components: a frozen <b>Patch Encoder</b>, a novel <b>Hierarchical Sparse Visual Attention (HSVA)</b> slide encoder, and a <b>Q-Former Connector</b> compressing features into 32 learnable LLM queries.
+          </p>
+          <p>
+            The core <b>HSVA</b> mechanism models 2D tissue topology to explicitly aggregate local diagnostic evidence into semantic summary tokens while preserving global context. Unlike conventional MIL collapsing patches into a single token, HSVA retains spatially coherent, multi-granular representations mimicking pathologists' local-global diagnostic workflow.
+          </p>
+          <p>
+            The model undergoes a <b>three-stage training</b>: (1) connector pre-training on HepatoPathCaption, (2) full-model fine-tuning on HepatoPathoVQA, and (3) alignment for robust multi-scale diagnostic performance.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="static/images/model.png" width="100%"/>
+          <p>
+            Overview of the <span class="hepato-brand">Hepato-LLaVA</span> framework: 
+            (<b>Upper</b>) Incorporates Sparse Topo-Pack Attention into the model architecture. 
+            (<b>Lower</b>) Implements a three-stage training pipeline: MAE pre-training, MoCo pre-training, and instruction tuning. 
+            The sparse attention mask defines three topological interactions: 
+            (1) <b>Global Sink</b> for macro-context broadcasting, 
+            (2) <b>Intra-Pack</b> for local dense interactions, and 
+            (3) <b>Inter-Pack</b> for summary-level connections across packs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!----------------------------------Experiment Results---------------------------------->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 hepato">📊 Experiment Results</h1>
+  </div>
+</section>
+
+<!-- Main Comparison Table -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3" id="leaderboard"><a>🏆 Main Results on HepatoPathoBench</a></h2>
+        <div class="content">
+          <p class="mt-3">
+            📈 Evaluation on <span class="hepato-brand">HepatoPathoBench</span> against general and pathology-specific MLLMs. <b>Single/Multi</b>: single/multiple choice. <b>WSI-P</b>: patch-level BLEU on WSI captioning. <b>WSI, ROI, Patch</b>: multi-scale accuracy. <b>Bold</b>: best; <u>underlined</u>: second best.
+          </p>
+          <div style="overflow-x: auto;">
+          <table id="table1">
+            <thead>
+              <tr class="thead-t1">
+                <th rowspan="3">Model</th>
+                <th rowspan="3">Input</th>
+                <th colspan="4">Morphological Analysis</th>
+                <th colspan="4">Diagnosis</th>
+                <th colspan="3">Multi-scale</th>
+                <th rowspan="3"><b>Avg</b></th>
+              </tr>
+              <tr class="thead-t2">
+                <th colspan="2">Open</th>
+                <th colspan="2">Close</th>
+                <th colspan="2">Open</th>
+                <th colspan="2">Close</th>
+                <th rowspan="2">WSI↑</th>
+                <th rowspan="2">ROI↑</th>
+                <th rowspan="2">Patch↑</th>
+              </tr>
+              <tr class="thead-t3">
+                <th>WSI-P↑</th>
+                <th>METEOR↑</th>
+                <th>Single↑</th>
+                <th>Multi↑</th>
+                <th>WSI-P↑</th>
+                <th>METEOR↑</th>
+                <th>Single↑</th>
+                <th>Multi↑</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lingshu</td>
+                <td>Thumbnail</td>
+                <td>0.53</td>
+                <td>0.17</td>
+                <td>0.38</td>
+                <td>0.44</td>
+                <td><u>0.73</u></td>
+                <td>0.18</td>
+                <td>0.39</td>
+                <td>0.38</td>
+                <td>0.52</td>
+                <td>0.52</td>
+                <td>0.49</td>
+                <td>0.50</td>
+              </tr>
+              <tr>
+                <td>Huatuo-GPT</td>
+                <td>Thumbnail</td>
+                <td><u>0.74</u></td>
+                <td><u>0.24</u></td>
+                <td>0.81</td>
+                <td>0.45</td>
+                <td>0.70</td>
+                <td><u>0.23</u></td>
+                <td>0.59</td>
+                <td>0.32</td>
+                <td>0.60</td>
+                <td>0.65</td>
+                <td>0.65</td>
+                <td>0.65</td>
+              </tr>
+              <tr>
+                <td>Quilt-LLaVA</td>
+                <td>Thumbnail</td>
+                <td>0.64</td>
+                <td>0.22</td>
+                <td>0.47</td>
+                <td>0.32</td>
+                <td>0.56</td>
+                <td>0.15</td>
+                <td>0.57</td>
+                <td>0.37</td>
+                <td>0.57</td>
+                <td>0.60</td>
+                <td>0.55</td>
+                <td>0.57</td>
+              </tr>
+              <tr>
+                <td>Patho-R1</td>
+                <td>Thumbnail</td>
+                <td>0.66</td>
+                <td>0.19</td>
+                <td><u>0.87</u></td>
+                <td><u>0.50</u></td>
+                <td>0.20</td>
+                <td>0.05</td>
+                <td>0.59</td>
+                <td><u>0.45</u></td>
+                <td>0.55</td>
+                <td>0.55</td>
+                <td>0.54</td>
+                <td>0.55</td>
+              </tr>
+              <tr>
+                <td>SlideChat</td>
+                <td>WSI</td>
+                <td>0.70</td>
+                <td>0.17</td>
+                <td><u>0.87</u></td>
+                <td>0.47</td>
+                <td>0.72</td>
+                <td>0.14</td>
+                <td>0.63</td>
+                <td>0.39</td>
+                <td><u>0.66</u></td>
+                <td><u>0.68</u></td>
+                <td><u>0.66</u></td>
+                <td><u>0.66</u></td>
+              </tr>
+              <tr>
+                <td>WSI-LLaVA</td>
+                <td>WSI</td>
+                <td>0.69</td>
+                <td>0.20</td>
+                <td>0.84</td>
+                <td>0.46</td>
+                <td>0.67</td>
+                <td>0.16</td>
+                <td><u>0.65</u></td>
+                <td>0.36</td>
+                <td>0.65</td>
+                <td>0.67</td>
+                <td>0.64</td>
+                <td>0.65</td>
+              </tr>
+              <tr class="ours-row">
+                <td><b>Hepato-LLaVA 🏆</b></td>
+                <td><b>WSI</b></td>
+                <td><b>0.79</b></td>
+                <td><b>0.33</b></td>
+                <td><b>0.97</b></td>
+                <td><b>0.88</b></td>
+                <td><b>0.75</b></td>
+                <td><b>0.33</b></td>
+                <td><b>0.87</b></td>
+                <td><b>0.68</b></td>
+                <td><b>0.82</b></td>
+                <td><b>0.83</b></td>
+                <td><b>0.83</b></td>
+                <td><b>0.83</b></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!----------------------------------Case Studies---------------------------------->
+<style>
+.case-img-slider { position: relative; width: 100%; text-align: center; }
+.case-img-slide { display: none; }
+.case-img-slide.active { display: block; }
+.case-img-slide img { max-width: 100%; border-radius: 8px; box-shadow: 0 2px 12px rgba(155,127,199,0.18); }
+.case-nav-wrap { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 14px; }
+.case-nav-btn {
+  background: rgba(155,127,199,0.12);
+  border: 2px solid #9b7fc7;
+  color: #7c5cbf;
+  border-radius: 50%;
+  width: 42px; height: 42px;
+  font-size: 24px; line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  padding: 0;
+}
+.case-nav-btn:hover { background: #9b7fc7; color: #fff; }
+.case-nav-indicator { font-size: 15px; color: #555; min-width: 44px; text-align: center; user-select: none; }
+</style>
+
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1">🔡 Case Study</h1>
+  </div>
+</section>
+
+<!-- WSI Level -->
+<section class="section pb-3">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-4 has-text-centered mb-2">
+          🖼️ WSI Level
+        </h2>
+        <p class="has-text-centered mb-4" style="color:#555;">
+          Whole Slide Image-level open-ended diagnosis in HepatoPathoVQA Dataset.
+        </p>
+        <div class="has-text-centered">
+          <div class="case-img-slider" id="case-slider-wsi">
+            <div class="case-img-slide active">
+              <img src="static/images/wsi_1.png" alt="WSI Level Case Study 1"/>
+            </div>
+            <div class="case-img-slide">
+              <img src="static/images/wsi_2.png" alt="WSI Level Case Study 2"/>
+            </div>
+            <div class="case-nav-wrap">
+              <button class="case-nav-btn" onclick="caseSlide('wsi', -1)">&#8249;</button>
+              <span class="case-nav-indicator" id="case-ind-wsi">1 / 2</span>
+              <button class="case-nav-btn" onclick="caseSlide('wsi', 1)">&#8250;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI Level -->
+<section class="section pb-3 pt-3">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-4 has-text-centered mb-2">
+          🔍 ROI Level
+        </h2>
+        <p class="has-text-centered mb-4" style="color:#555;">
+          Region-of-Interest level analysis examples in HepatoPathoVQA Dataset.
+        </p>
+        <div class="has-text-centered">
+          <div class="case-img-slider" id="case-slider-roi">
+            <div class="case-img-slide active">
+              <img src="static/images/roi_1.png" alt="ROI Level Case Study 1"/>
+            </div>
+            <div class="case-img-slide">
+              <img src="static/images/roi_2.png" alt="ROI Level Case Study 2"/>
+            </div>
+            <div class="case-nav-wrap">
+              <button class="case-nav-btn" onclick="caseSlide('roi', -1)">&#8249;</button>
+              <span class="case-nav-indicator" id="case-ind-roi">1 / 2</span>
+              <button class="case-nav-btn" onclick="caseSlide('roi', 1)">&#8250;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Patch Level -->
+<section class="section pt-3">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-4 has-text-centered mb-2">
+          🧩 Patch Level
+        </h2>
+        <p class="has-text-centered mb-4" style="color:#555;">
+          Patch-level morphological analysis examples in HepatoPathoVQA Dataset.
+        </p>
+        <div class="has-text-centered">
+          <div class="case-img-slider" id="case-slider-patch">
+            <div class="case-img-slide active">
+              <img src="static/images/patch_1.png" alt="Patch Level Case Study 1"/>
+            </div>
+            <div class="case-img-slide">
+              <img src="static/images/patch_2.png" alt="Patch Level Case Study 2"/>
+            </div>
+            <div class="case-nav-wrap">
+              <button class="case-nav-btn" onclick="caseSlide('patch', -1)">&#8249;</button>
+              <span class="case-nav-indicator" id="case-ind-patch">1 / 2</span>
+              <button class="case-nav-btn" onclick="caseSlide('patch', 1)">&#8250;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!----------------------------------Citation---------------------------------->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">📚 BibTeX Citation</h2>
+    <pre><code>
+    @article{hepatollava2026,
+      title={Hepato-LLaVA: An Expert MLLM with Sparse Topo-Pack Attention for Hepatocellular Pathology Analysis on Whole Slide Images},
+      author={Yang, Yuxuan and Yan, Zhonghao and Zhang, Yi and Yun, Bo and Diao, Muxi and Zhao, Guowei and Liang, Kongming and Li, Wenbin and Ma, Zhanyu},
+      year={2026}
+    }
+    </code></pre>
+  </div>
+</section>
+
+
+<!--footer-->
+<footer class="footer">
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is adapted from <a href="https://we-math.github.io/">We-Math</a> and <a href="https://csbench.github.io/">CS-Bench</a>, licensed under a <a rel="license"
+                                              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+          Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!----------------------------------End Body---------------------------------->
+
+<script>
+function caseSlide(level, dir) {
+  var container = document.getElementById('case-slider-' + level);
+  var slides = container.querySelectorAll('.case-img-slide');
+  var current = Array.prototype.findIndex.call(slides, function(s) { return s.classList.contains('active'); });
+  slides[current].classList.remove('active');
+  current = (current + dir + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  document.getElementById('case-ind-' + level).textContent = (current + 1) + ' / ' + slides.length;
+}
+</script>
+
+</body>
+</html>

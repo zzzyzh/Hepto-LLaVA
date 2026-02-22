@@ -1,0 +1,26 @@
+<p align="center">
+  <img src="assets/icon.png" alt="Hepato-LLaVA Logo" width="80"/>
+</p>
+
+<h1 align="center">Hepato-LLaVA: An Expert MLLM with Sparse Topo-Pack Attention for Hepatocellular Pathology Analysis on Whole Slide Images</h1>
+
+
+<p align="center">
+  <a href="https://github.com/wssf3092/Hepato-LLaVA"><img src="https://img.shields.io/badge/GitHub-Repo-181717?logo=github" alt="GitHub"></a>
+  <a><img src="https://img.shields.io/badge/arXiv-Coming%20Soon-b31b1b?logo=arxiv" alt="arXiv"></a>
+  <a><img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Coming%20Soon-yellow" alt="HuggingFace"></a>
+</p>
+
+---
+
+## 👀 Introduction
+
+<p align="center">
+  <img src="assets/model.png" width="100%" alt="Hepato-LLaVA Framework"/>
+</p>
+
+Hepatocellular Carcinoma (HCC) relies on histopathological **Whole Slide Images (WSIs)** examination as the gold standard. However, manual analysis of these gigapixel, highly heterogeneous WSIs is labor-intensive and prone to inter-observer variability. This has catalyzed WSI-based **Multi-modal Large Language Models (MLLMs)** to enable VQA.
+
+A key challenge in pathology MLLMs is gigapixel WSI representation. Existing methods either use **thumbnail-based approaches** that lose critical high-resolution diagnostic details, or employ **slide-encoder approaches** that generate excessively redundant tokens.
+
+We propose **Hepato-LLaVA**, a specialized MLLM for fine-grained hepatocellular pathology analysis. It features a novel **Hierarchical Sparse Visual Attention (HSVA)** mechanism that models 2D tissue topology to aggregate diagnostic evidence while preserving context. To address multiscale data scarcity, we also present **HepatoPathoVQA**, comprising **33K hierarchically structured QA pairs** validated by pathologists. **Hepato-LLaVA** achieves state-of-the-art diagnostic accuracy, outperforming existing pathology MLLMs by an absolute **20%**.
