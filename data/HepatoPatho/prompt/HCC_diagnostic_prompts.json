@@ -1,0 +1,59 @@
+{
+  "HCC_diagnostic_prompts": {
+    "1_Specimen_Gross_Evaluation": [
+      "Based on the gross features of the specimen (color, texture, nodule shape, border characteristics), assess whether these suggest hepatocellular carcinoma (HCC) and describe the key macroscopic findings you observe.",
+      "Considering the clinical context (such as HBV/HCV infection history, liver cirrhosis, elevated AFP levels, etc.), estimate the background risk level and explain how these clinical factors influence your preliminary judgment of HCC.",
+      "Evaluate the number of tumor nodules, the presence of capsule formation, and necrosis, and explain what these features typically indicate in HCC.",
+      "If the specimen is from a liver biopsy, comment on whether the number and quality of tissue strips are sufficient for microscopic assessment; if it is a resection specimen, describe the surface and background liver tissue macroscopically.",
+      "When observing ‘yellow-brown nodules with ill-defined borders in a cirrhotic liver,’ how would you construct an initial diagnostic hypothesis? Also, explain what findings might instead suggest cholangiocarcinoma or a benign lesion."
+    ],
+
+    "2_Microscopic_Diagnosis": {
+      "Low_Power_View": [
+        "Identify whether the hepatic lobular architecture is disrupted in the image, and explain why this architectural loss is diagnostically significant in HCC.",
+        "Describe the interface between abnormal and normal tissue and determine whether a pseudo-capsule or fibrous septa are present.",
+        "Based on the morphology of background liver tissue, determine whether cirrhosis is present and explain its relationship to HCC development.",
+        "When only focal architectural disturbance is seen without cirrhosis, what differential diagnoses should be considered?",
+        "Explain the diagnostic implication of the combination ‘architectural disruption + cirrhotic background’ and its weight in diagnosing primary liver cancer."
+      ],
+      "Medium_Power_View": [
+        "Analyze the growth pattern in this region (trabecular, pseudo-glandular, or solid type) and explain what the pattern indicates about the differentiation grade.",
+        "Describe the morphology of the sinusoidal capillary network and its diagnostic importance in HCC.",
+        "Examine whether the tumor capsule is breached by tumor cells; if so, explain what kind of invasive behavior this represents.",
+        "Identify possible intravascular tumor emboli and discuss their prognostic implications.",
+        "When you observe a combination of ‘trabecular growth + sinusoidal capillaries + capsule invasion,’ how do you integrate these findings to form an intermediate diagnostic conclusion?"
+      ],
+      "High_Power_View": [
+        "Describe the cytoplasmic features of tumor cells (eosinophilia, clear cell change, etc.) and assess their differentiation type.",
+        "Examine nuclear size, shape, nucleoli, chromatin pattern, and mitotic figures, and use them to evaluate the malignancy grade.",
+        "Identify and interpret the significance of Mallory bodies or intracytoplasmic bile droplets.",
+        "If the cytologic appearance resembles clear cell renal carcinoma, explain how to differentiate it morphologically from HCC.",
+        "Based on the high-power findings, state whether this specimen is consistent with HCC cytologic features and describe your main diagnostic evidence."
+      ]
+    },
+
+    "3_Immunohistochemistry": [
+      "When differentiating well-differentiated HCC from high-grade dysplastic nodules (DN), which markers (GPC3, Hsp70, GS, etc.) would you select, and how would you interpret their expression patterns?",
+      "In distinguishing clear cell HCC from metastatic clear cell renal carcinoma, how do the expression patterns of Hep Par1, CA9, and CD10 guide your diagnosis?",
+      "Explain the key immunohistochemical differences between HCC and cholangiocarcinoma (CCA), and describe how you would identify a combined hepatocellular-cholangiocarcinoma.",
+      "For biopsy specimens with limited tissue, how can minimal markers (such as GPC3 and Hep Par1) be effectively used to support diagnosis?",
+      "If immunohistochemical results are partially positive or conflicting (e.g., Hep Par1 negative but GPC3 positive), how would you integrate morphology and clinical background to reach a conclusion?"
+    ],
+
+    "4_Differential_Diagnosis": [
+      "Compare well-differentiated HCC and high-grade dysplastic nodules in terms of architecture and immunohistochemical profiles.",
+      "Explain how to distinguish hepatocellular adenoma from HCC, focusing on clinical background, morphology, and vascular architecture.",
+      "When metastatic liver cancer is suspected, which morphological or immunohistochemical features are most helpful for excluding HCC?",
+      "Explain the differences between HCC and cholangiocarcinoma in tissue structure, stromal characteristics, and immunophenotype.",
+      "Describe how to differentiate reactive hepatocellular hyperplasia from early HCC, discussing etiology, morphology, and nuclear atypia."
+    ],
+
+    "5_Final_Diagnosis": [
+      "Integrate morphological, immunohistochemical, and clinical findings to determine whether the specimen can be definitively diagnosed as HCC.",
+      "If morphology supports HCC but immunohistochemistry is not fully consistent, explain from a pathological reasoning perspective why it should be classified as ‘probable HCC.’",
+      "When immunohistochemical results are negative but morphology suggests malignancy, describe how you would word the pathology report to recommend clinical follow-up or additional testing.",
+      "Present a layered diagnostic statement in the style of a pathology report (e.g., ‘Definitive HCC,’ ‘Probable HCC,’ or ‘Exclude HCC’).",
+      "In the final diagnostic reasoning, identify which features carry the greatest diagnostic weight and summarize your overall judgment logic for this case."
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "Liver_Fibrosis_Cirrhosis": {
+    "fibrosis_stage": {
+      "H&E": [
+        "Liver architecture is preserved with no pseudolobules formed.",
+        "Delicate collagen deposition in portal tracts and perisinusoidal spaces.",
+        "Portal inflammation may be mild with scattered necrosis."
+      ],
+      "special_stains": [
+        "Masson trichrome stains collagen blue.",
+        "Sirius red distinguishes type I and III collagen under polarized light."
+      ],
+      "immunomarkers": [
+        "α-SMA highlights stellate cell activation.",
+        "Collagen I/III confirm fibrotic deposition.",
+        "Vimentin indicates fibroblastic activity.",
+        "CK7/CK19 restricted to portal bile ductules."
+      ]
+    },
+    "cirrhosis_stage": {
+      "H&E": [
+        "Complete formation of pseudolobules encircled by broad collagenous septa.",
+        "Central veins displaced or absent; portal tracts may be trapped.",
+        "Reactive ductular proliferation and neovascularization present.",
+        "Hepatocytes mildly enlarged but without malignant nuclear atypia."
+      ],
+      "immunomarkers": [
+        "CD34 positive only in septal neovessels but negative in pseudolobular sinusoids.",
+        "Ki-67 low (<5%), consistent with regenerative changes."
+      ]
+    },
+    "HCC_vs_Dysplastic_Nodule": {
+      "architecture": [
+        "Dysplastic nodule: partial preservation of hepatic architecture.",
+        "HCC: complete architectural effacement with abnormal trabeculae (>2 cells)."
+      ],
+      "cytology": [
+        "Dysplastic nodule: mild atypia, no atypical mitoses.",
+        "HCC: enlarged nuclei, obvious nucleoli, abnormal mitotic figures."
+      ],
+      "immunophenotype": [
+        "Dysplastic nodule: GPC3−, CD34 limited to septal vessels, Ki-67 <5%.",
+        "HCC: GPC3+, diffuse CD34 sinusoidal pattern, Ki-67 >10%."
+      ]
+    }
+  }
+}

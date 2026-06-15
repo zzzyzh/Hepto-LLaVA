@@ -1,0 +1,43 @@
+{
+  "iCCA_Knowledge": {
+    "core_morphology": {
+      "architecture": [
+        "Irregular infiltrative glands embedded in abundant desmoplastic stroma.",
+        "Tubular, tubulopapillary or anastomosing glandular structures.",
+        "Dense collagenous stroma is characteristic."
+      ],
+      "cytology": [
+        "Cuboidal to columnar tumor cells.",
+        "Cytoplasm may contain mucin vacuoles.",
+        "Mitoses are common and nuclei are vesicular with small nucleoli."
+      ]
+    },
+    "mucin_features": [
+      "Intraluminal or intracytoplasmic mucin strongly supports iCCA.",
+      "PAS-D and Alcian blue highlight mucin components."
+    ],
+    "differential_vs_HCC": {
+      "low_power_distinction": [
+        "iCCA: collagen hugging tumor nests.",
+        "HCC: capillary sinusoids between trabeculae."
+      ],
+      "challenging_differentials": [
+        "Thin-trabecular iCCA vs well-differentiated HCC.",
+        "Sarcomatoid iCCA vs sarcomatoid HCC.",
+        "Clear-cell iCCA vs clear-cell HCC."
+      ],
+      "immunohistochemistry": [
+        "iCCA: CK19+, MOC-31+, CK7+, mucin+, HepPar-1−.",
+        "HCC: HepPar-1+, GPC3+, CD34 sinusoidal, CK19−."
+      ]
+    },
+    "mixed_type_cholangiocarcinoma": {
+      "definition": "Combined hepatocellular–cholangiocarcinoma (cHCC-CCA) shows both hepatocytic and cholangiocytic elements.",
+      "diagnostic_logic": [
+        "Identify areas of classic HCC morphology and classic iCCA morphology.",
+        "Dual immunophenotype possible: HepPar-1+/CK19− adjacent to HepPar-1−/CK19+.",
+        "Mixed or stem cell–like types may show overlapping features."
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "connector_path": "mlp",
+    "mm_hidden_size": 1024,
+    "hidden_size": 4096,
+    "connector_args": {
+        "num_layers": 2,
+        "activation": "gelu",
+        "dropout": 0.0,
+        "use_layer_norm": false
+    }
+}

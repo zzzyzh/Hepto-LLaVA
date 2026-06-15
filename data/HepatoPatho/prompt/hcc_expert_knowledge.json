@@ -1,0 +1,66 @@
+{
+  "HCC_Diagnostic_Knowledge": {
+    "gross_assessment": {
+      "key_principles": [
+        "Cirrhotic background significantly increases suspicion for hepatocellular carcinoma (HCC).",
+        "Tumor nodules often appear tan or grey-white, firm, sometimes showing central yellow necrosis.",
+        "HCC may show an indistinct border or a thin grey pseudocapsule.",
+        "Vascular invasion may appear as dark-red thrombus-like structures within vessel lumens."
+      ],
+      "decision_logic": [
+        "If cirrhosis + tan nodule + irregular border → malignant, favor HCC.",
+        "If no cirrhosis + solitary well-circumscribed nodule → consider hepatocellular adenoma first.",
+        "A whitish tumor abutting major bile ducts favors intrahepatic cholangiocarcinoma."
+      ]
+    },
+    "microscopy": {
+      "low_power": [
+        "Loss of normal hepatic lobular architecture with replacement by irregular sheets or cords.",
+        "Presence of pseudolobules indicates cirrhosis in background liver.",
+        "Search for boundaries between tumor and non-tumor areas to identify infiltration."
+      ],
+      "medium_power": [
+        "Classical HCC shows trabeculae 2–3 cells thick with sinusoidal spacing.",
+        "Pseudoglandular patterns may contain bile plugs.",
+        "Solid patterns correlate with lower differentiation.",
+        "Evidence of malignancy includes capsule invasion and vascular invasion."
+      ],
+      "high_power": [
+        "Nuclei enlarged to 1.5–2× normal size with irregular contours.",
+        "Prominent eosinophilic nucleoli with coarse, uneven chromatin.",
+        "Frequent mitotic figures including abnormal forms.",
+        "Cytoplasm often eosinophilic or clear due to glycogen/fat."
+      ]
+    },
+    "immunohistochemistry": {
+      "HCC_markers": [
+        "HepPar-1 positive in hepatocellular differentiation.",
+        "Arginase-1 (Arg-1) – highly sensitive for HCC.",
+        "Glypican-3 – supports malignancy in hepatocellular tumors.",
+        "CD34 – diffuse sinusoidal capillarization characteristic of HCC.",
+        "Ki-67 – proliferative index often high (>10%)."
+      ],
+      "diagnostic_scenarios": {
+        "HCC_vs_Dysplastic_Nodule": [
+          "HCC: GPC3+, Hsp70+, GS+ (any two positive strongly indicate HCC).",
+          "Dysplastic nodule: typically negative for all three markers."
+        ],
+        "ClearCell_HCC_vs_RCC": [
+          "HCC phenotype: HepPar-1+, CA-IX−, CD10−.",
+          "Renal cell carcinoma phenotype: HepPar-1−, CA-IX+, CD10+."
+        ],
+        "HCC_vs_iCCA": [
+          "HCC: HepPar-1+, Glypican-3+, CK19−, MUC1−.",
+          "iCCA: HepPar-1−, Glypican-3−, CK19+, MUC1+."
+        ]
+      }
+    },
+    "differential_diagnosis": [
+      "High-grade dysplastic nodule",
+      "Hepatocellular adenoma",
+      "Metastatic carcinoma",
+      "Intrahepatic cholangiocarcinoma",
+      "Nodular regenerative hyperplasia"
+    ]
+  }
+}

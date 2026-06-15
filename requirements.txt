@@ -1,0 +1,29 @@
+bitsandbytes==0.49.2
+deepspeed==0.18.6
+editdistance==0.8.1
+fastapi==0.129.0
+flash-attn==2.8.3
+gradio==6.6.0
+huggingface_hub==0.35.3
+numpy==2.2.0
+openai==2.6.1
+openslide-python==1.4.2
+packaging==26.0
+pandas==2.3.3
+peft==0.18.1
+Pillow==12.1.1
+pycocoevalcap==1.2
+ray==2.54.0
+requests==2.32.5
+scikit-learn==1.7.0
+sglang==0.5.8
+shortuuid==1.0.13
+swanlab==0.7.8
+tokenizers==0.22.2
+torch==2.9.1
+tqdm==4.67.1
+transformers==4.57.1
+uvicorn==0.41.0
+# conch
+# llava 
+
